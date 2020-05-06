@@ -5,20 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.slim.js"></script>
     <script src="{{ url_for('static', filename='index.js') }}"></script>
-    <script>alert("Hello world");</script>
+    
     <title>Project 2 CS50W</title>
 </head>
 <body>
-    <ul id="votes">
-    </ul>
-    <hr>
-    <button data-vote="yes">Yes</button>
-    <button data-vote="no">No</button>
-    <button data-vote="maybe">Maybe</button>
 
     <ul id="messages"></ul>
     <hr>
     <input type="text" id="myMessage">
     <button type="button" id="send">Send</button>
+    
 </body>
 </html>
