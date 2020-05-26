@@ -3,17 +3,58 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.slim.js"></script>
     <script src="{{ url_for('static', filename='index.js') }}"></script>
     
     <title>Project 2 CS50W</title>
+    <style>
+        .v-space{
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+    </style>
 </head>
 <body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-3">
 
-    <ul id="messages"></ul>
-    <hr>
-    <input type="text" id="myMessage">
-    <button type="button" id="send">Send</button>
-    
+                <h5>Username</h5>
+                <p id="show_username"></p>
+
+                <div id="user_display"><!-- Set Username -->
+                    <input type="text" id="myUsername"> 
+                    <button id="set-username">set username</button>
+                </div>
+                <br>
+                
+                <div> <!-- Create new chat room -->
+                    <h4>Create a new room</h4>
+                    <input type="text" id="setnewRoom" placeholder="New room name"> 
+                    <button type="button" id="set_newRoom">Create</button>
+                </div>
+                <br>
+
+                <nav id="rooms">
+                    <h4>ROOMS</h4>
+                    {% for room in rooms %}
+                        <li class="select-room"> {{ room|title }}</li>
+                    {% endfor %}
+                </nav>
+                
+            </div>
+            <div class="col-lg-9 v-space">
+                <ul id="messages"></ul>
+                <div id="wMessage"> <!-- Write message box -->
+                    <hr>
+                    <input type="text" id="myMessage">
+                    <button type="button" id="send">Send</button>
+                </div>
+                
+            </div>
+        </div>
+    </div>
 </body>
 </html>
